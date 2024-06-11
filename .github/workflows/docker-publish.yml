@@ -26,6 +26,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Build the Docker image
       - run: docker build . --file Dockerfile --tag fredcrz/taller-devops:prueba
+      - name: Login
       - run: echo "${{ secrets.DOCKER_TOKE}}" | docker login -u "${{secrets.DOCKER_USER_NAME}}" --password-stdin
       - name: Push docker image
       - run: docker push fredcrz/taller-devops:prueba
